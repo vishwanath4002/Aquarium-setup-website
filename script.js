@@ -1,6 +1,7 @@
 const slider = document.getElementById("tank-slider");
 const image = document.getElementById("tank-image");
 const sizeText = document.getElementById("size-value");
+const nextBtn = document.getElementById("next-button");
 
 slider.addEventListener("input", function () {
   const size = parseInt(this.value);
@@ -12,7 +13,6 @@ slider.addEventListener("input", function () {
   const newWidth = minWidth + ((size - minSize) / (maxSize - minSize)) * (maxWidth - minWidth);
 
   image.style.width = `${newWidth}px`;
-  const tankSize = localStorage.getItem("selectedTankSize");
 });
 
 window.onload = () => {
@@ -21,13 +21,8 @@ window.onload = () => {
   localStorage.removeItem("selectedTankSize");
 };
 
-// Handle "Next" button click
-nextBtn.addEventListener("next-button", function () {
+nextBtn.addEventListener("click", function () {
   const selectedSize = parseInt(slider.value);
-
-  // Store in localStorage or send to backend later
   localStorage.setItem("selectedTankSize", selectedSize);
-
-  // Redirect to next page (replace 'fish-selection.html' with your real next step)
   window.location.href = "fish-selection.html";
 });
