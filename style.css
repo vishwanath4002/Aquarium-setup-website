@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  text-align: center;
+  max-width: 600px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #1a4e8a;
+  margin-bottom: 24px;
+}
+
+.tank-display {
+  margin: 20px 0;
+}
+
+#tank-image {
+  width: 200px;
+  transition: width 0.3s ease-in-out;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-top: 20px;
+}

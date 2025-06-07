@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aquarium Tank Size Selector</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>How big do you want the fish tank?</h1>
+    
+    <div class="tank-display">
+      <img id="tank-image" src="assets/images/tank.png" alt="Fish Tank" />
+      <p>Selected Size: <span id="size-value">60</span> Liters</p>
+    </div>
+
+    <input type="range" id="tank-slider" min="10" max="200" step="10" value="60"/>
+
+    <!-- Next Button -->
+    <button id="next-button">Next</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
