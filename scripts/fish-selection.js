@@ -52,7 +52,7 @@ function renderFishCards(list) {
       <div class="fish-card-content">
         <h3>${fish.name}</h3>
         <p><em>${fish.scientific_name}</em></p>
-        <p>Size: ${fish.size_cm} cm • ${"$".repeat(fish.size_cm > 7 ? 3 : 1)}</p>
+        <p>Size: ${fish.size_cm} cm • ${fish.expense_level}</p>
         <button onclick="addFish('${fish.name}')">+</button>
         <span id="count-${fish.name}">0</span>
         <button onclick="removeFish('${fish.name}')">–</button>
@@ -123,4 +123,15 @@ async function init() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", () => {
+  init();
+
+  // Add event listener for the Reset button
+  const resetButton = document.getElementById("reset-filters-button");
+  if (resetButton) {
+    resetButton.addEventListener("click", () => {
+      location.reload(); // reloads the page, resetting filters and selections
+    });
+  }
+});
+
