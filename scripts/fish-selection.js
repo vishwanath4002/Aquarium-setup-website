@@ -135,4 +135,15 @@ async function init() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", () => {
+  init();
+
+  // Add event listener for the Reset button
+  const resetButton = document.getElementById("reset-filters-button");
+  if (resetButton) {
+    resetButton.addEventListener("click", () => {
+      location.reload(); // reloads the page, resetting filters and selections
+    });
+  }
+});
+
