@@ -1,13 +1,12 @@
 let fishData = [];
 let selectedFish = [];
-//let tankSize = parseInt(localStorage.getItem("selectedTankSize")) || 0;
-let tankSize = 100; // Default tank size, can be changed later
+let tankSize = 100;
 let remaining = tankSize;
 
 const grid = document.getElementById("fish-grid");
 const remDisplay = document.getElementById("remaining-capacity");
-
-
+const modal = document.getElementById("fish-modal");
+const modalContent = document.getElementById("fish-modal-content");
 
 function updateRemaining() {
   const used = selectedFish.reduce((sum, f) => {
@@ -17,6 +16,31 @@ function updateRemaining() {
   remaining = tankSize - used;
   remDisplay.textContent = remaining;
 }
+
+function showFishModal(fish) {
+  modalContent.innerHTML = `
+    <button id="close-modal">&times;</button>
+    <h2>${fish.name}</h2>
+    <img src="${fish.image}" alt="${fish.name}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px;">
+    <p><strong>Scientific Name:</strong> ${fish.scientific_name}</p>
+    <p><strong>Size:</strong> ${fish.size_cm} cm</p>
+    <p><strong>pH Range:</strong> ${fish.pH_range || "N/A"}</p>
+    <p><strong>Temperature:</strong> ${fish.temperature || "N/A"}</p>
+    <p><strong>Tank Mates:</strong> ${fish.compatible_fish ? fish.compatible_fish.join(", ") : "N/A"}</p>
+    <p><strong>Description:</strong> ${fish.description || "No description available."}</p>
+  `;
+  modal.style.display = "flex";
+  document.getElementById("close-modal").onclick = () => {
+    modal.style.display = "none";
+  };
+}
+
+// Hide modal if clicked outside content
+window.addEventListener("click", e => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
 
 function renderFishCards(list) {
   grid.innerHTML = "";
@@ -29,12 +53,6 @@ function renderFishCards(list) {
         <h3>${fish.name}</h3>
         <p><em>${fish.scientific_name}</em></p>
         <p>Size: ${fish.size_cm} cm • ${"$".repeat(fish.size_cm > 7 ? 3 : 1)}</p>
-        <div class="extra-info" style="display: none;">
-          <p><strong>pH Range:</strong> ${fish.pH_range || "N/A"}</p>
-          <p><strong>Temperature:</strong> ${fish.temperature || "N/A"}</p>
-          <p><strong>Tank Mates:</strong> ${fish.compatible_fish ? fish.compatible_fish.join(", ") : "N/A"}</p>
-          <p><strong>Description:</strong> ${fish.description || "No description."}</p>
-        </div>
         <button onclick="addFish('${fish.name}')">+</button>
         <span id="count-${fish.name}">0</span>
         <button onclick="removeFish('${fish.name}')">–</button>
@@ -42,8 +60,7 @@ function renderFishCards(list) {
     
     card.addEventListener("click", e => {
       if (e.target.tagName.toLowerCase() === "button") return;
-      const extra = card.querySelector(".extra-info");
-      extra.style.display = extra.style.display === "none" ? "block" : "none";
+      showFishModal(fish);
     });
 
     grid.appendChild(card);
@@ -90,16 +107,13 @@ function updateUI(name) {
   const entry = selectedFish.find(f => f.name === name);
   document.getElementById(`count-${name}`).textContent = entry?.count || 0;
   updateRemaining();
-  // Optional: re-render fish if filtering is needed
 }
 
 async function init() {
   try {
     document.getElementById("tank-size-display").textContent = tankSize;
-
     const resp = await fetch("../data/fish-data.json");
     if (!resp.ok) throw new Error("Failed to fetch fish data.");
-
     fishData = await resp.json();
     renderFishCards(fishData.filter(f => f.min_tank_liters <= tankSize));
     updateRemaining();
@@ -109,5 +123,4 @@ async function init() {
   }
 }
 
-//  Ensure DOM is ready before calling init()
 document.addEventListener("DOMContentLoaded", init);
