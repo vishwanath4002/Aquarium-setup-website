@@ -28,11 +28,11 @@ function renderFishCards(list) {
       <div class="fish-card-content">
         <h3>${fish.name}</h3>
         <p><em>${fish.scientific_name}</em></p>
-        <p>Size: ${fish.size_cm} cm • $${"$".repeat(fish.size_cm > 7 ? 3 : 1)}</p>
+        <p>Size: ${fish.size_cm} cm • ${"$".repeat(fish.size_cm > 7 ? 3 : 1)}</p>
         <div class="extra-info" style="display: none;">
-          <p><strong>pH Range:</strong> ${fish.ph_range || "N/A"}</p>
-          <p><strong>Temperature:</strong> ${fish.temperature_range || "N/A"}</p>
-          <p><strong>Tank Mates:</strong> ${fish.compatible_with ? fish.compatible_with.join(", ") : "N/A"}</p>
+          <p><strong>pH Range:</strong> ${fish.pH_range || "N/A"}</p>
+          <p><strong>Temperature:</strong> ${fish.temperature || "N/A"}</p>
+          <p><strong>Tank Mates:</strong> ${fish.compatible_fish ? fish.compatible_fish.join(", ") : "N/A"}</p>
           <p><strong>Description:</strong> ${fish.description || "No description."}</p>
         </div>
         <button onclick="addFish('${fish.name}')">+</button>
@@ -109,5 +109,5 @@ async function init() {
   }
 }
 
-// 👇 Ensure DOM is ready before calling init()
+//  Ensure DOM is ready before calling init()
 document.addEventListener("DOMContentLoaded", init);
