@@ -6,6 +6,7 @@
         "min_tank_liters": 10,
         "max_per_tank": 1,
         "schooling": false,
+        "min_school_size": 1,
         "tank_level": "Top",
         "flow_preference": "Low",
         "pH_range": [
@@ -23,10 +24,7 @@
         "nitrate_sensitivity": "Medium",
         "behavior": "Aggressive",
         "aggression_level": "Aggressive",
-        "compatible_fish": [
-            "Snail",
-            "Corydoras"
-        ],
+        "compatible_fish": ["Corydoras Catfish"],
         "compatible_plants": [
             "Java Fern",
             "Anubias"
@@ -46,6 +44,7 @@
         "min_tank_liters": 38,
         "max_per_tank": 10,
         "schooling": true,
+        "min_school_size": 5,
         "tank_level": "Mid",
         "flow_preference": "Moderate",
         "pH_range": [
@@ -63,10 +62,7 @@
         "nitrate_sensitivity": "High",
         "behavior": "Peaceful",
         "aggression_level": "Peaceful",
-        "compatible_fish": [
-            "Corydoras",
-            "Guppy"
-        ],
+        "compatible_fish": ["Corydoras Catfish", "Guppy", "Zebra Danio"],
         "compatible_plants": [
             "Java Moss",
             "Amazon Sword"
@@ -86,6 +82,7 @@
         "min_tank_liters": 30,
         "max_per_tank": 6,
         "schooling": false,
+        "min_school_size": 1,
         "tank_level": "Top",
         "flow_preference": "Low",
         "pH_range": [
@@ -103,10 +100,7 @@
         "nitrate_sensitivity": "Medium",
         "behavior": "Peaceful",
         "aggression_level": "Peaceful",
-        "compatible_fish": [
-            "Platy",
-            "Mollies"
-        ],
+        "compatible_fish": ["Platy", "Molly", "Neon Tetra", "Zebra Danio"],
         "compatible_plants": [
             "Hornwort",
             "Java Moss"
@@ -126,6 +120,7 @@
         "min_tank_liters": 40,
         "max_per_tank": 6,
         "schooling": true,
+        "min_school_size": 5,
         "tank_level": "Bottom",
         "flow_preference": "Moderate",
         "pH_range": [
@@ -143,10 +138,7 @@
         "nitrate_sensitivity": "Low",
         "behavior": "Peaceful",
         "aggression_level": "Peaceful",
-        "compatible_fish": [
-            "Betta",
-            "Neon Tetra"
-        ],
+        "compatible_fish": ["Betta", "Neon Tetra", "Dwarf Gourami", "Bristlenose Pleco"],
         "compatible_plants": [
             "Anubias",
             "Java Fern"
@@ -166,6 +158,7 @@
         "min_tank_liters": 40,
         "max_per_tank": 5,
         "schooling": false,
+        "min_school_size": 1,
         "tank_level": "Mid",
         "flow_preference": "Moderate",
         "pH_range": [
@@ -183,10 +176,7 @@
         "nitrate_sensitivity": "Low",
         "behavior": "Peaceful",
         "aggression_level": "Peaceful",
-        "compatible_fish": [
-            "Guppy",
-            "Molly"
-        ],
+        "compatible_fish": ["Guppy", "Molly"],
         "compatible_plants": [
             "Hornwort",
             "Amazon Sword"
@@ -206,6 +196,7 @@
         "min_tank_liters": 40,
         "max_per_tank": 6,
         "schooling": true,
+        "min_school_size": 6,
         "tank_level": "Top",
         "flow_preference": "High",
         "pH_range": [
@@ -223,10 +214,7 @@
         "nitrate_sensitivity": "Low",
         "behavior": "Active",
         "aggression_level": "Peaceful",
-        "compatible_fish": [
-            "Tetra",
-            "Guppy"
-        ],
+        "compatible_fish": ["Neon Tetra", "Guppy", "Cherry Barb"],
         "compatible_plants": [
             "Hornwort",
             "Java Moss"
@@ -246,6 +234,7 @@
         "min_tank_liters": 50,
         "max_per_tank": 2,
         "schooling": false,
+        "min_school_size": 1,
         "tank_level": "Top",
         "flow_preference": "Low",
         "pH_range": [
@@ -263,10 +252,7 @@
         "nitrate_sensitivity": "Medium",
         "behavior": "Territorial",
         "aggression_level": "Semi-aggressive",
-        "compatible_fish": [
-            "Tetra",
-            "Corydoras"
-        ],
+        "compatible_fish": ["Neon Tetra", "Corydoras Catfish"],
         "compatible_plants": [
             "Java Fern",
             "Anubias"
@@ -286,6 +272,7 @@
         "min_tank_liters": 40,
         "max_per_tank": 6,
         "schooling": true,
+        "min_school_size": 5,
         "tank_level": "Mid",
         "flow_preference": "Moderate",
         "pH_range": [
@@ -303,10 +290,7 @@
         "nitrate_sensitivity": "Low",
         "behavior": "Peaceful",
         "aggression_level": "Peaceful",
-        "compatible_fish": [
-            "Tetra",
-            "Danio"
-        ],
+        "compatible_fish": ["Zebra Danio"],
         "compatible_plants": [
             "Java Fern",
             "Hornwort"
@@ -326,6 +310,7 @@
         "min_tank_liters": 50,
         "max_per_tank": 4,
         "schooling": false,
+        "min_school_size": 1,
         "tank_level": "Top",
         "flow_preference": "Moderate",
         "pH_range": [
@@ -343,10 +328,7 @@
         "nitrate_sensitivity": "Low",
         "behavior": "Peaceful",
         "aggression_level": "Peaceful",
-        "compatible_fish": [
-            "Platy",
-            "Guppy"
-        ],
+        "compatible_fish": ["Platy", "Guppy"],
         "compatible_plants": [
             "Hornwort",
             "Amazon Sword"
@@ -366,6 +348,7 @@
         "min_tank_liters": 75,
         "max_per_tank": 1,
         "schooling": false,
+        "min_school_size": 1,
         "tank_level": "Bottom",
         "flow_preference": "Moderate",
         "pH_range": [
@@ -383,10 +366,7 @@
         "nitrate_sensitivity": "Low",
         "behavior": "Peaceful",
         "aggression_level": "Peaceful",
-        "compatible_fish": [
-            "Tetra",
-            "Corydoras"
-        ],
+        "compatible_fish": ["Neon Tetra", "Corydoras Catfish"],
         "compatible_plants": [
             "Java Fern",
             "Anubias"
