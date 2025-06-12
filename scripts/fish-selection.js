@@ -97,7 +97,7 @@ async function init() {
   try {
     document.getElementById("tank-size-display").textContent = tankSize;
 
-    const resp = await fetch("fish-data.json");
+    const resp = await fetch("../data/fish-data.json");
     if (!resp.ok) throw new Error("Failed to fetch fish data.");
 
     fishData = await resp.json();
