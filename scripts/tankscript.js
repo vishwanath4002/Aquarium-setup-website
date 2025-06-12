@@ -21,13 +21,14 @@ window.onload = () => {
   localStorage.removeItem("selectedTankSize");
 };
 
+const nextBtn = document.getElementById("next-button");
 // Handle "Next" button click
-nextBtn.addEventListener("next-button", function () {
+nextBtn.addEventListener("click", function () {
   const selectedSize = parseInt(slider.value);
 
   // Store in localStorage or send to backend later
   localStorage.setItem("selectedTankSize", selectedSize);
 
   // Redirect to next page (replace 'fish-selection.html' with your real next step)
-  window.location.href = "fish-selection.html";
+  window.location.href = "../html/fish_selection.html";
 });

@@ -1,0 +1,402 @@
+[
+    {
+        "name": "Betta",
+        "scientific_name": "Betta splendens",
+        "size_cm": 6,
+        "min_tank_liters": 10,
+        "max_per_tank": 1,
+        "schooling": false,
+        "tank_level": "Top",
+        "flow_preference": "Low",
+        "pH_range": [
+            6,
+            7.5
+        ],
+        "temperature": [
+            24,
+            28
+        ],
+        "hardness_range": [
+            5,
+            20
+        ],
+        "nitrate_sensitivity": "Medium",
+        "behavior": "Aggressive",
+        "aggression_level": "Aggressive",
+        "compatible_fish": [
+            "Snail",
+            "Corydoras"
+        ],
+        "compatible_plants": [
+            "Java Fern",
+            "Anubias"
+        ],
+        "substrate_preference": "Soft sand",
+        "food": "Pellets",
+        "light_level": "Low",
+        "care_level": "Easy",
+        "expense_level": "$$",
+        "image": "../assets/fish/betta.jpg",
+        "description": "Bettas are vibrant and colorful freshwater fish, well-known for their flowing fins and unique personalities.\nThey are best kept alone or with very peaceful tank mates due to their territorial nature.\nMales are especially aggressive toward each other and should not be housed together.\nThey can breathe air from the surface using a labyrinth organ, making them suitable for tanks with low oxygen.\nAvoid tanks with strong currents or sharp decor, as Bettas prefer calm water and delicate fins can tear easily.\nThey are relatively easy to care for and ideal for small tanks with gentle filtration and stable water conditions."
+    },
+    {
+        "name": "Neon Tetra",
+        "scientific_name": "Paracheirodon innesi",
+        "size_cm": 4,
+        "min_tank_liters": 38,
+        "max_per_tank": 10,
+        "schooling": true,
+        "tank_level": "Mid",
+        "flow_preference": "Moderate",
+        "pH_range": [
+            6,
+            7
+        ],
+        "temperature": [
+            22,
+            26
+        ],
+        "hardness_range": [
+            2,
+            10
+        ],
+        "nitrate_sensitivity": "High",
+        "behavior": "Peaceful",
+        "aggression_level": "Peaceful",
+        "compatible_fish": [
+            "Corydoras",
+            "Guppy"
+        ],
+        "compatible_plants": [
+            "Java Moss",
+            "Amazon Sword"
+        ],
+        "substrate_preference": "Dark sand",
+        "food": "Flake food",
+        "light_level": "Moderate",
+        "care_level": "Easy",
+        "expense_level": "$",
+        "image": "../assets/fish/neon_tetra.jpg",
+        "description": "Neon Tetras are small, peaceful schooling fish with vibrant blue and red coloring.\nThey thrive in groups and do best in well-established, heavily planted tanks.\nThey are sensitive to changes in water quality and should be added only to stable aquariums.\nTheir peaceful temperament makes them ideal community fish for nano and mid-sized tanks."
+    },
+    {
+        "name": "Guppy",
+        "scientific_name": "Poecilia reticulata",
+        "size_cm": 5,
+        "min_tank_liters": 30,
+        "max_per_tank": 6,
+        "schooling": false,
+        "tank_level": "Top",
+        "flow_preference": "Low",
+        "pH_range": [
+            6.8,
+            7.8
+        ],
+        "temperature": [
+            22,
+            28
+        ],
+        "hardness_range": [
+            8,
+            12
+        ],
+        "nitrate_sensitivity": "Medium",
+        "behavior": "Peaceful",
+        "aggression_level": "Peaceful",
+        "compatible_fish": [
+            "Platy",
+            "Mollies"
+        ],
+        "compatible_plants": [
+            "Hornwort",
+            "Java Moss"
+        ],
+        "substrate_preference": "Gravel",
+        "food": "Flake food",
+        "light_level": "Moderate",
+        "care_level": "Easy",
+        "expense_level": "$",
+        "image": "../assets/fish/guppy.jpg",
+        "description": "Guppies are one of the most popular beginner fish due to their bright colors and hardiness.\nThey are livebearers, meaning they give birth to free-swimming fry.\nThey are very adaptable and thrive in planted tanks with gentle water flow.\nThey are best kept in trios or small groups with other peaceful species."
+    },
+    {
+        "name": "Corydoras Catfish",
+        "scientific_name": "Corydoras spp.",
+        "size_cm": 6,
+        "min_tank_liters": 40,
+        "max_per_tank": 6,
+        "schooling": true,
+        "tank_level": "Bottom",
+        "flow_preference": "Moderate",
+        "pH_range": [
+            6,
+            7.5
+        ],
+        "temperature": [
+            22,
+            26
+        ],
+        "hardness_range": [
+            2,
+            12
+        ],
+        "nitrate_sensitivity": "Low",
+        "behavior": "Peaceful",
+        "aggression_level": "Peaceful",
+        "compatible_fish": [
+            "Betta",
+            "Tetra"
+        ],
+        "compatible_plants": [
+            "Anubias",
+            "Java Fern"
+        ],
+        "substrate_preference": "Soft sand",
+        "food": "Sinking pellets",
+        "light_level": "Low",
+        "care_level": "Easy",
+        "expense_level": "$$",
+        "image": "../assets/fish/corydoras.jpg",
+        "description": "Corydoras are bottom-dwelling catfish that thrive in peaceful community tanks.\nThey prefer soft sandy substrate to prevent injury to their barbels.\nThey are social fish and should be kept in groups of at least 5 or more.\nThey scavenge the bottom for food and help keep the tank clean."
+    },
+    {
+        "name": "Platy",
+        "scientific_name": "Xiphophorus maculatus",
+        "size_cm": 5,
+        "min_tank_liters": 40,
+        "max_per_tank": 5,
+        "schooling": false,
+        "tank_level": "Mid",
+        "flow_preference": "Moderate",
+        "pH_range": [
+            7,
+            8.2
+        ],
+        "temperature": [
+            22,
+            26
+        ],
+        "hardness_range": [
+            10,
+            28
+        ],
+        "nitrate_sensitivity": "Low",
+        "behavior": "Peaceful",
+        "aggression_level": "Peaceful",
+        "compatible_fish": [
+            "Guppy",
+            "Molly"
+        ],
+        "compatible_plants": [
+            "Hornwort",
+            "Amazon Sword"
+        ],
+        "substrate_preference": "Gravel",
+        "food": "Flakes",
+        "light_level": "Moderate",
+        "care_level": "Easy",
+        "expense_level": "$",
+        "image": "../assets/fish/platy.jpg",
+        "description": "Platies are colorful and lively livebearers perfect for beginners.\nThey are very social and do well in community tanks with similar-sized fish.\nThey prefer slightly hard, alkaline water and appreciate planted environments.\nTheir easy-going nature makes them great tank mates for guppies and mollies."
+    },
+    {
+        "name": "Zebra Danio",
+        "scientific_name": "Danio rerio",
+        "size_cm": 4,
+        "min_tank_liters": 40,
+        "max_per_tank": 6,
+        "schooling": true,
+        "tank_level": "Top",
+        "flow_preference": "High",
+        "pH_range": [
+            6.5,
+            7.5
+        ],
+        "temperature": [
+            18,
+            24
+        ],
+        "hardness_range": [
+            5,
+            19
+        ],
+        "nitrate_sensitivity": "Low",
+        "behavior": "Active",
+        "aggression_level": "Peaceful",
+        "compatible_fish": [
+            "Tetra",
+            "Guppy"
+        ],
+        "compatible_plants": [
+            "Hornwort",
+            "Java Moss"
+        ],
+        "substrate_preference": "Gravel",
+        "food": "Flakes",
+        "light_level": "Moderate",
+        "care_level": "Easy",
+        "expense_level": "$",
+        "image": "../assets/fish/zebra_danio.jpg",
+        "description": "Zebra Danios are fast, hardy, and energetic schooling fish.\nThey are highly active and thrive in tanks with strong currents and lots of swimming space.\nThey are great for beginners and do well with other peaceful species.\nBest kept in groups of 6 or more for natural schooling behavior."
+    },
+    {
+        "name": "Dwarf Gourami",
+        "scientific_name": "Trichogaster lalius",
+        "size_cm": 8,
+        "min_tank_liters": 50,
+        "max_per_tank": 2,
+        "schooling": false,
+        "tank_level": "Top",
+        "flow_preference": "Low",
+        "pH_range": [
+            6,
+            7.5
+        ],
+        "temperature": [
+            24,
+            28
+        ],
+        "hardness_range": [
+            4,
+            10
+        ],
+        "nitrate_sensitivity": "Medium",
+        "behavior": "Territorial",
+        "aggression_level": "Semi-aggressive",
+        "compatible_fish": [
+            "Tetra",
+            "Corydoras"
+        ],
+        "compatible_plants": [
+            "Java Fern",
+            "Anubias"
+        ],
+        "substrate_preference": "Soft sand",
+        "food": "Pellets",
+        "light_level": "Moderate",
+        "care_level": "Moderate",
+        "expense_level": "$$$",
+        "image": "../assets/fish/dwarf_gourami.jpg",
+        "description": "Dwarf Gouramis are vibrantly colored and make stunning additions to peaceful tanks.\nThey prefer heavily planted tanks with calm water.\nMales can be territorial, so they’re best kept singly or in pairs with caution.\nThey breathe from the surface and need access to open air above the water."
+    },
+    {
+        "name": "Cherry Barb",
+        "scientific_name": "Puntius titteya",
+        "size_cm": 5,
+        "min_tank_liters": 40,
+        "max_per_tank": 6,
+        "schooling": true,
+        "tank_level": "Mid",
+        "flow_preference": "Moderate",
+        "pH_range": [
+            6,
+            7.5
+        ],
+        "temperature": [
+            23,
+            27
+        ],
+        "hardness_range": [
+            5,
+            15
+        ],
+        "nitrate_sensitivity": "Low",
+        "behavior": "Peaceful",
+        "aggression_level": "Peaceful",
+        "compatible_fish": [
+            "Tetra",
+            "Danio"
+        ],
+        "compatible_plants": [
+            "Java Fern",
+            "Hornwort"
+        ],
+        "substrate_preference": "Fine gravel",
+        "food": "Flake food",
+        "light_level": "Moderate",
+        "care_level": "Easy",
+        "expense_level": "$$",
+        "image": "../assets/fish/cherry_barb.jpg",
+        "description": "Cherry Barbs are bright red peaceful fish that thrive in planted tanks.\nThey do well in small groups and prefer a calm environment with good plant cover.\nThey’re adaptable and good for beginner aquarists.\nThey’re active swimmers and best kept in schools of 5 or more."
+    },
+    {
+        "name": "Molly",
+        "scientific_name": "Poecilia sphenops",
+        "size_cm": 6,
+        "min_tank_liters": 50,
+        "max_per_tank": 4,
+        "schooling": false,
+        "tank_level": "Top",
+        "flow_preference": "Moderate",
+        "pH_range": [
+            7.5,
+            8.5
+        ],
+        "temperature": [
+            24,
+            28
+        ],
+        "hardness_range": [
+            10,
+            30
+        ],
+        "nitrate_sensitivity": "Low",
+        "behavior": "Peaceful",
+        "aggression_level": "Peaceful",
+        "compatible_fish": [
+            "Platy",
+            "Guppy"
+        ],
+        "compatible_plants": [
+            "Hornwort",
+            "Amazon Sword"
+        ],
+        "substrate_preference": "Fine gravel",
+        "food": "Flakes",
+        "light_level": "Moderate",
+        "care_level": "Easy",
+        "expense_level": "$",
+        "image": "../assets/fish/molly.jpg",
+        "description": "Mollies are active and hardy livebearers suited for both freshwater and slightly brackish water.\nThey are prolific breeders and enjoy swimming space and a veggie-rich diet.\nThey adapt well to a variety of conditions and are great for community aquariums.\nThey prefer harder water and are great companions to platies and guppies."
+    },
+    {
+        "name": "Bristlenose Pleco",
+        "scientific_name": "Ancistrus spp.",
+        "size_cm": 12,
+        "min_tank_liters": 75,
+        "max_per_tank": 1,
+        "schooling": false,
+        "tank_level": "Bottom",
+        "flow_preference": "Moderate",
+        "pH_range": [
+            6.5,
+            7.5
+        ],
+        "temperature": [
+            23,
+            27
+        ],
+        "hardness_range": [
+            4,
+            20
+        ],
+        "nitrate_sensitivity": "Low",
+        "behavior": "Peaceful",
+        "aggression_level": "Peaceful",
+        "compatible_fish": [
+            "Tetra",
+            "Corydoras"
+        ],
+        "compatible_plants": [
+            "Java Fern",
+            "Anubias"
+        ],
+        "substrate_preference": "Smooth gravel",
+        "food": "Algae wafers",
+        "light_level": "Low",
+        "care_level": "Moderate",
+        "expense_level": "$$$",
+        "image": "../assets/fish/bristlenose_pleco.jpg",
+        "description": "Bristlenose Plecos are algae-eating bottom dwellers that help clean your tank.\nThey prefer driftwood and low-light conditions with smooth substrate.\nThey are peaceful and do well in most community tanks with good hiding spots.\nThey stay smaller than common plecos and are suitable for mid-sized aquariums."
+    }
+]
