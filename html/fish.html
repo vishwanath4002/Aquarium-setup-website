@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Your Fish</title>
+  <link rel="stylesheet" href="../css/fishstyle.css" />
+</head>
+<body>
+  <header>
+    <h1>Select Your Fish</h1>
+    <p>Tank Size: <span id="tank-size-display"></span> liters</p>
+  </header>
+
+  <main>
+    <section id="fish-grid" class="card-grid">
+      <!-- Fish cards dynamically inserted here -->
+    </section>
+
+    <aside id="selection-summary">
+      <h2>Your Selection</h2>
+      <ul id="selected-fish-list"></ul>
+      <p>Remaining Capacity: <span id="remaining-capacity"></span> liters</p>
+      <button id="next-button">Next</button>
+    </aside>
+  </main>
+
+  <!-- Expanded card modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="modal-close">&times;</span>
+      <div id="modal-details"><!-- Full fish details will be shown here --></div>
+    </div>
+  </div>
+
+  <script src="../scripts/fish-selection.js"></script>
+</body>
+</html>
