@@ -24,9 +24,21 @@ function showFishModal(fish) {
     <img src="${fish.image}" alt="${fish.name}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px;">
     <p><strong>Scientific Name:</strong> ${fish.scientific_name}</p>
     <p><strong>Size:</strong> ${fish.size_cm} cm</p>
-    <p><strong>pH Range:</strong> ${fish.pH_range || "N/A"}</p>
-    <p><strong>Temperature:</strong> ${fish.temperature || "N/A"}</p>
+    <p><strong>pH Range:</strong> ${fish.pH_range.join(" - ") || "N/A"}</p>
+    <p><strong>Temperature Range:</strong> ${fish.temperature.join(" - ") || "N/A"} °C</p>
+    <p><strong>Hardness Range:</strong> ${fish.hardness_range.join(" - ") || "Unknown"} mg/L</p>
     <p><strong>Tank Mates:</strong> ${fish.compatible_fish ? fish.compatible_fish.join(", ") : "N/A"}</p>
+    <p><strong>Schooling:</strong> ${fish.schooling?"Yes" : "No" || "Unknown"}</p>
+    <p><strong>Compatible Plants:</strong> ${fish.compatible_plants.join(", ") || "Unknown"}</p>
+    <p><strong>Max per Tank:</strong> ${fish.max_per_tank}</p>
+    <p><strong>Minimum Tank Size:</strong> ${fish.min_tank_liters} L</p>
+    <p><strong>Tank Level:</strong> ${fish.tank_level || "Unknown"}</p>
+    <p><strong>Flow Preference:</strong> ${fish.flow_preference || "Unknown"}</p>
+    <p><strong>Nitrate Sensiticity:</strong> ${fish.nitrate_sensitivity || "Unknown"}</p>
+    <p><strong>Light Level:</strong> ${fish.light_level || "Unknown"}</p>
+    <p><strong>Food Type:</strong> ${fish.food || "Unknown"}</p>
+    <p><strong>Care Level:</strong> ${fish.care_level || "Unknown"}</p>
+    <p><strong>Behavior:</strong> ${fish.behavior || "Unknown"}</p>
     <p><strong>Description:</strong> ${fish.description || "No description available."}</p>
   `;
   modal.style.display = "flex";
@@ -52,7 +64,7 @@ function renderFishCards(list) {
       <div class="fish-card-content">
         <h3>${fish.name}</h3>
         <p><em>${fish.scientific_name}</em></p>
-        <p>Size: ${fish.size_cm} cm • ${"$".repeat(fish.size_cm > 7 ? 3 : 1)}</p>
+        <p>Size: ${fish.size_cm} cm • ${fish.expense_level}</p>
         <button onclick="addFish('${fish.name}')">+</button>
         <span id="count-${fish.name}">0</span>
         <button onclick="removeFish('${fish.name}')">–</button>
