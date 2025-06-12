@@ -1,6 +1,6 @@
 let fishData = [];
 let selectedFish = [];
-let tankSize = 100;
+const tankSize = parseInt(localStorage.getItem("selectedTankSize"),  10) || 100;
 let remaining = tankSize;
 
 const grid = document.getElementById("fish-grid");
@@ -56,7 +56,33 @@ window.addEventListener("click", e => {
 
 function renderFishCards(list) {
   grid.innerHTML = "";
-  list.forEach(fish => {
+
+const filteredList = list.filter(fish => {
+  // Always include already selected fish
+  if (selectedFish.some(sel => sel.name === fish.name)) {
+    return true;
+  }
+
+  // Skip fish too large for remaining capacity
+  if (fish.min_tank_liters > remaining) return false;
+
+  // Skip fish incompatible with already selected ones
+  for (const sel of selectedFish) {
+    const selectedFishData = fishData.find(f => f.name === sel.name);
+    if (!selectedFishData) continue;
+
+    // Compatibility must be mutual
+    const isCompatible =
+      selectedFishData.compatible_fish.includes(fish.name) &&
+      fish.compatible_fish.includes(selectedFishData.name);
+
+    if (!isCompatible) return false;
+  }
+
+  return true;
+});
+
+  filteredList.forEach(fish => {
     const card = document.createElement("div");
     card.className = "fish-card";
     card.innerHTML = `
@@ -66,10 +92,10 @@ function renderFishCards(list) {
         <p><em>${fish.scientific_name}</em></p>
         <p>Size: ${fish.size_cm} cm • ${fish.expense_level}</p>
         <button onclick="addFish('${fish.name}')">+</button>
-        <span id="count-${fish.name}">0</span>
+        <span id="count-${fish.name}">${selectedFish.find(f => f.name === fish.name)?.count || 0}</span>
         <button onclick="removeFish('${fish.name}')">–</button>
       </div>`;
-    
+
     card.addEventListener("click", e => {
       if (e.target.tagName.toLowerCase() === "button") return;
       showFishModal(fish);
@@ -117,8 +143,12 @@ function removeFish(name) {
 
 function updateUI(name) {
   const entry = selectedFish.find(f => f.name === name);
-  document.getElementById(`count-${name}`).textContent = entry?.count || 0;
+  const countElement = document.getElementById(`count-${name}`);
+  if (countElement) {
+    countElement.textContent = entry?.count || 0;
+  }
   updateRemaining();
+  renderFishCards(fishData);
 }
 
 async function init() {
