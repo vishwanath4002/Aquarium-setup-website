@@ -57,30 +57,43 @@ window.addEventListener("click", e => {
 function renderFishCards(list) {
   grid.innerHTML = "";
 
-const filteredList = list.filter(fish => {
-  // Always include already selected fish
-  if (selectedFish.some(sel => sel.name === fish.name)) {
+  const baseFishLiters = selectedFish.map(sel => {
+    const fish = fishData.find(f => f.name === sel.name);
+    if (!fish) return 0;
+
+    const overLimitCount = fish.schooling ? Math.max(0, sel.count - fish.max_per_tank) : 0;
+    return fish.min_tank_liters + overLimitCount * fish.min_tank_liters;
+  });
+
+  // Compute max base fish requirement among selected
+  const largestRequirement = Math.max(...baseFishLiters, 0);
+  const used = baseFishLiters.reduce((sum, val) => sum + val, 0);
+  remaining = tankSize - used;
+  remDisplay.textContent = remaining;
+
+  const filteredList = list.filter(fish => {
+    // Always include already selected fish
+    if (selectedFish.some(sel => sel.name === fish.name)) {
+      return true;
+    }
+
+    // Skip if current fish's base requirement > current largest allowed
+    if (fish.min_tank_liters > (tankSize - largestRequirement)) return false;
+
+    // Skip incompatible fish
+    for (const sel of selectedFish) {
+      const selData = fishData.find(f => f.name === sel.name);
+      if (!selData) continue;
+
+      const compatible =
+        selData.compatible_fish?.includes(fish.name) &&
+        fish.compatible_fish?.includes(selData.name);
+
+      if (!compatible) return false;
+    }
+
     return true;
-  }
-
-  // Skip fish too large for remaining capacity
-  if (fish.min_tank_liters > remaining) return false;
-
-  // Skip fish incompatible with already selected ones
-  for (const sel of selectedFish) {
-    const selectedFishData = fishData.find(f => f.name === sel.name);
-    if (!selectedFishData) continue;
-
-    // Compatibility must be mutual
-    const isCompatible =
-      selectedFishData.compatible_fish.includes(fish.name) &&
-      fish.compatible_fish.includes(selectedFishData.name);
-
-    if (!isCompatible) return false;
-  }
-
-  return true;
-});
+  });
 
   filteredList.forEach(fish => {
     const card = document.createElement("div");
@@ -104,6 +117,7 @@ const filteredList = list.filter(fish => {
     grid.appendChild(card);
   });
 }
+
 
 function addFish(name) {
   const fish = fishData.find(f => f.name === name);
