@@ -8,15 +8,6 @@ const remDisplay = document.getElementById("remaining-capacity");
 const modal = document.getElementById("fish-modal");
 const modalContent = document.getElementById("fish-modal-content");
 
-function updateRemaining() {
-  const used = selectedFish.reduce((sum, f) => {
-    const fish = fishData.find(x => x.name === f.name);
-    return sum + (fish ? fish.min_tank_liters * f.count : 0);
-  }, 0);
-  remaining = tankSize - used;
-  remDisplay.textContent = remaining;
-}
-
 function showFishModal(fish) {
   modalContent.innerHTML = `
     <button id="close-modal">&times;</button>
@@ -47,40 +38,49 @@ function showFishModal(fish) {
   };
 }
 
-// Hide modal if clicked outside content
-window.addEventListener("click", e => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-});
+
+function updateRemaining() {
+  let baseMinTank = 0;
+  let extraLiters = 0;
+
+  selectedFish.forEach(sel => {
+    const fish = fishData.find(f => f.name === sel.name);
+    if (!fish) return;
+
+    baseMinTank = Math.max(baseMinTank, fish.min_tank_liters);
+
+    if (fish.schooling) {
+      const extraCount = Math.max(0, sel.count - fish.max_per_tank);
+
+      // Use precomputed extra_liters_per_extra_fish if available
+      const perFishExtra = fish.extra_liters_per_extra_fish;
+
+      if (perFishExtra != null) {
+        extraLiters += extraCount * perFishExtra;
+      } else {
+        // fallback estimate if not available
+        const fallbackLiters = fish.size_cm * 0.5;
+        extraLiters += extraCount * fallbackLiters;
+      }
+    }
+  });
+
+  remaining = tankSize - baseMinTank - extraLiters;
+  remDisplay.textContent = remaining.toFixed(1);
+}
 
 function renderFishCards(list) {
   grid.innerHTML = "";
 
-  const baseFishLiters = selectedFish.map(sel => {
-    const fish = fishData.find(f => f.name === sel.name);
-    if (!fish) return 0;
-
-    const overLimitCount = fish.schooling ? Math.max(0, sel.count - fish.max_per_tank) : 0;
-    return fish.min_tank_liters + overLimitCount * fish.min_tank_liters;
-  });
-
-  // Compute max base fish requirement among selected
-  const largestRequirement = Math.max(...baseFishLiters, 0);
-  const used = baseFishLiters.reduce((sum, val) => sum + val, 0);
-  remaining = tankSize - used;
-  remDisplay.textContent = remaining;
+  updateRemaining(); // update remaining first
 
   const filteredList = list.filter(fish => {
-    // Always include already selected fish
+    // Always show selected fish
     if (selectedFish.some(sel => sel.name === fish.name)) {
       return true;
     }
 
-    // Skip if current fish's base requirement > current largest allowed
-    if (fish.min_tank_liters > (tankSize - largestRequirement)) return false;
-
-    // Skip incompatible fish
+    // Incompatible with selected?
     for (const sel of selectedFish) {
       const selData = fishData.find(f => f.name === sel.name);
       if (!selData) continue;
@@ -91,6 +91,9 @@ function renderFishCards(list) {
 
       if (!compatible) return false;
     }
+
+    // Skip if this fish's base requirement > remaining
+    if (fish.min_tank_liters > remaining) return false;
 
     return true;
   });
@@ -119,6 +122,7 @@ function renderFishCards(list) {
 }
 
 
+
 function addFish(name) {
   const fish = fishData.find(f => f.name === name);
   if (!fish) return;
@@ -129,16 +133,19 @@ function addFish(name) {
     selectedFish.push(entry);
   }
 
-  if (entry.count >= fish.max_per_tank) {
+  if (entry.count >= fish.max_per_tank && fish.schooling== false){ 
     alert("Max number for this fish reached.");
     return;
   }
 
-  if (remaining < fish.min_tank_liters) {
+  if (remaining < fish.min_tank_liters && entry.count === 0) {
     alert("Not enough space in the tank.");
     return;
   }
-
+  if (remaining < fish.extra_liters_per_extra_fish && entry.count > 0) {
+    alert("Not enough space in the tank for this fish.");
+    return;
+  }
   entry.count++;
   updateUI(name);
 }
